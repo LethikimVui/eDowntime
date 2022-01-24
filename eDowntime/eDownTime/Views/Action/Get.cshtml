@@ -1,0 +1,168 @@
+﻿
+
+@{
+    var customers = ViewData["customers"] as List<SharedObjects.ValueObjects.VCustomer>;
+    var Category = ViewData["Category"] as List<SharedObjects.ValueObjects.VCategory>;
+    var yyww = ViewData["yyww"] as List<SharedObjects.ValueObjects.VWorkWeek>;
+    ViewData["Title"] = "Q3";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="min-height: auto !important;height: auto !important;">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light" style="min-height: auto !important;height: auto !important">
+                <div class="portlet-title">
+
+                    <div class="caption col-md-12">
+                        <span class="caption-subject font-green-sharp bold uppercase">
+                            Q3
+                        </span>
+                    </div>
+                    <div class="col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Customer</label>
+                        <select class="form-control" id="txt-wc-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+
+                            @foreach (var item in customers.OrderByDescending(c => c.CustName).ToList())
+                            {
+                                <option value=@item.CustName>@item.CustName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Work Week</label>
+                        <select class="form-control" id="txt-ww-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+
+                            @foreach (var item in yyww.OrderByDescending(c => c.Yyww).ToList())
+                            {
+                                <option value=@item.Yyww>@item.Yyww</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Downtime Category</label>
+                        <select class="form-control" id="txt-cat-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+
+                            @foreach (var item in Category.OrderBy(c => c.Category).ToList())
+                            {
+                                <option value=@item.Category>@item.Category</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <a class="btn btn-success" id="btn-search">Search</a>
+                        <a class="btn btn-success" id="btn-reset">Reset</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+
+    <div id="tbl-content">
+
+    </div>
+    <div class="pagination" id="pagination">
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog" style="width:1000px">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">  </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <form class="modal-body" id="frm-save">
+                <div class="form-group">
+                    <label for="">Workweek</label>
+                    <label for="" class="form-control" id="txt-yyww" style="background-color:lightskyblue"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">Workcell</label>
+                    <label for="" class="form-control" id="txt-wc" style="background-color:lightskyblue"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">Downtime Category</label>
+                    <label for="" class="form-control" id="txt-category" style="background-color:lightskyblue"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">Downtime Details</label>
+                    <label for="" class="form-control" id="txt-details" style="background-color:lightskyblue"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">Problem Description</label>
+                    @*<input type="text" class="form-control" id="txt-description" name="description" autocomplete="off" />*@
+                    <textarea class="form-control" id="txt-description" name="description" rows="7"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Root Cause</label>
+                    @*<label for="" class="form-control" id="txt-rootcause" style="background-color:lightskyblue"></label>*@
+                    <textarea class="form-control" id="txt-rootcause" name="rootcause" rows="7"></textarea>
+
+                </div>
+                <div class="form-group">
+                    <label for="">Containment Action</label>
+                    <textarea class="form-control" id="txt-action" name="action" rows="7"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Corrective and Preventive Action</label>
+                    <textarea class="form-control" id="txt-capa" name="capa" rows="7"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">% Impact vs Overall</label>
+                    <textarea class="form-control" id="txt-overalimpact" name="overalimpact" rows="7"></textarea>
+                </div>
+               
+                <div class="form-group">
+                    <label for="">ECN/PCN/NA</label>
+                    <textarea class="form-control" id="txt-ecnpcn" name="ecnpcn" rows="7"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">FIA No.</label>
+                    <textarea class="form-control" id="txt-fia" name="fia" rows="7"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Responsible Person</label>
+                    <input type="text" class="form-control" id="txt-person" name="person" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label for="">Commit Date</label>
+                    <input type="text" class="form-control" id="txt-commitdate" name="commitdate" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label for="">Status</label>
+                    <textarea class="form-control" id="txt-ws" name="ws" rows="7"></textarea>
+                </div>
+                <div class="form-group">
+                    <input id="attachment" type=file multiple name="files" onclick="this.value=''" accept=".xlsx">
+                </div>
+                <div id="fileList">
+                </div>
+
+
+            </form>
+            <!-- Modal footer -->
+            <div class="modal-footer" id="actionId">
+                <button type="button" class="btn default" data-dismiss="modal" id="btn-save">Save</button>
+                <button type="button" class="btn blue" id="btn-submit">Submit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/js/action.js"></script>
+}
