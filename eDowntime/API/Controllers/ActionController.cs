@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SharedObjects.Common;
 using SharedObjects.StoredProcedure;
 using SharedObjects.ValueObjects;
 using SharedObjects.ViewModels;
@@ -27,8 +28,23 @@ namespace API.Controllers
         [Obsolete]
         public async Task<List<VAction>> Action_get(ActionViewModel model)
         {
-            var results = await context.Query<VAction>().AsNoTracking().FromSql(SPAction.Action_get, model.ActionId, model.CustName, model.yyww, model.Category).ToListAsync();
+            var results = await context.Query<VAction>().AsNoTracking().FromSql(SPAction.Action_get, model.ActionId, model.CustName, model.Yyww, model.Category).ToListAsync();
             return results;
+        }
+        [HttpPost("Acton_update")]
+        [Obsolete]
+        public async Task<IActionResult> Action_insert([FromBody] ActionViewModel model)
+        {
+            try
+            {
+                await context.Database.ExecuteSqlCommandAsync(SPAction.Acton_update, model.ActionId, model.ProblemDescription, model.RootCause, model.ContainmentAction, model.Capa, model.OverallImpact, model.Ecnpcn, model.Fia, model.Responsible, model.CommitDate, model.UpdatedBy);
+                return Ok(new ResponseResult(200));
+            }
+            catch (Exception)
+            {
+                return BadRequest(new ResponseResult(400, "Save failed"));
+            }
+
         }
     }
 }

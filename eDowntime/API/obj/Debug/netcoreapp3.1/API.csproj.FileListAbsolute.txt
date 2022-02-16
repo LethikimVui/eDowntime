@@ -139,3 +139,4 @@ C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDownti
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\API\bin\Debug\netcoreapp3.1\SharedObjects.dll
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\API\bin\Debug\netcoreapp3.1\SharedObjects.pdb
+C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

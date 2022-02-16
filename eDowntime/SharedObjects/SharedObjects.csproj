@@ -56,6 +56,7 @@
     <Compile Include="ValueObjects\VAction.cs" />
     <Compile Include="ValueObjects\VCustomer.cs" />
     <Compile Include="ValueObjects\VCategory.cs" />
+    <Compile Include="ValueObjects\VUser.cs" />
     <Compile Include="ValueObjects\VUserRole.cs" />
     <Compile Include="ValueObjects\VWorkWeek.cs" />
     <Compile Include="ViewModels\UserRoleViewModel.cs" />

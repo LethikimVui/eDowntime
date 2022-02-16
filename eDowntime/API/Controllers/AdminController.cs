@@ -51,9 +51,9 @@ namespace API.Controllers
         {
             try
             {
-                if (!context.EDtAccessUserRole.Where(x => (x.Ntlogin == model.Ntlogin) && (x.CustId == model.CustId) && (x.IsActive == 1)).ToList().Any())
+                if (!context.AccessUserRole.Where(x => (x.Ntlogin == model.Ntlogin) && (x.CustName == model.CustName) && (x.IsActive == 1)).ToList().Any())
                 {
-                    await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_insert, model.Ntlogin, model.RoleId, model.PlantId, model.CustId, model.CreatedBy);
+                    await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_insert, model.Ntlogin, model.RoleId, model.PlantId, model.CustName, model.CreatedBy);
                     return Ok(new ResponseResult(200, "User Added Successfully"));
                 }
                 else
@@ -75,6 +75,20 @@ namespace API.Controllers
             {
                 await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_delete, model.UserRoleId, model.UpdatedBy);
                 return Ok(new ResponseResult(200));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResponseResult(400, ex.Message));
+            }
+        }
+        [HttpPost("Access_UserRole_update")]
+        [Obsolete]
+        public async Task<IActionResult> Access_UserRole_update(UserRoleViewModel model)
+        {
+            try
+            {
+                await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_update, model.UserRoleId, model.PlantId, model.CustName, model.RoleId, model.UpdatedBy);
+                return Ok(new ResponseResult(200, "User Updated Successfully"));
             }
             catch (Exception ex)
             {

@@ -14,6 +14,7 @@ namespace SharedObjects.ValueObjects
         public string CustName { get; set; }
         public string Category { get; set; }
         public string Details { get; set; }
+        public double? TotalDT { get; set; }
         public string ProblemDescription { get; set; }
         public string RootCause { get; set; }
         public string ContainmentAction { get; set; }

@@ -13,7 +13,9 @@ namespace Services.Services
         public BaseService()
         {
             httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://localhost:11447");
+            //httpClient.BaseAddress = new Uri("http://localhost:11447");
+            httpClient.BaseAddress = new Uri("http://vnhcmm0teapp02/edowntimeapi/");
+
         }
     }
 }

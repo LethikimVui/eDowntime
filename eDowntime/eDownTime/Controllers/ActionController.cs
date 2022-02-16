@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 using SharedObjects.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SharedObjects.Extensions;
 
 namespace eDownTime.Controllers
 {
+    [Authorize]
     public class ActionController : Controller
     {
         private readonly IActionService actionService;
@@ -20,7 +23,8 @@ namespace eDownTime.Controllers
         }
         public async Task<IActionResult> Get()
         {
-            var customers = await commonService.Customer_Get();
+            var NtLogin = User.GetSpecificClaim("Ntlogin");
+            var customers = await commonService.Customer_Get(NtLogin);
             var Category = await commonService.Category_get();
             var yyww = await commonService.WorkWeek_get();
 
@@ -40,6 +44,16 @@ namespace eDownTime.Controllers
         {
             var results = await actionService.Action_get(model);
             return Json( new { results = results.FirstOrDefault()});
+        }
+        [HttpPost]
+        public async Task<IActionResult> Acton_update([FromBody] ActionViewModel model)
+        {
+            //if (model.ActionCode == 2)
+            //{
+            //    SentEmail(model.ActionId, model.CustName, model.Pn, model.Wwyy);
+            //}
+            var result = await actionService.Acton_update(model);
+            return Json(new { results = result });
         }
     }
 }

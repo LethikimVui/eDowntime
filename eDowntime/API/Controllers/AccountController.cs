@@ -37,15 +37,15 @@ namespace API.Controllers
         [Obsolete]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
-            var user = await context.Query<VUserRole>().AsNoTracking().FromSql(SPAccount.UserRole_get, model.NTLogin).ToListAsync();
+            var user = await context.Query<VUser>().AsNoTracking().FromSql(SPAccount.UserRole_get, model.NTLogin).ToListAsync();
             List<Claim> informationClaim = new List<Claim>();
-            if (user.Count>0)
+            if (user.Count > 0)
             {
                 foreach (var item in user)
                 {
                     informationClaim.Add(new Claim(ClaimTypes.Role, item.RoleName));
-                    informationClaim.Add(new Claim("CustName", item.CustName));
-                }   
+                    //informationClaim.Add(new Claim("CustName", item.CustName));
+                }
             }
 
             informationClaim.Add(new Claim("Ntlogin", model.NTLogin));
@@ -65,6 +65,5 @@ namespace API.Controllers
             string strToken = new JwtSecurityTokenHandler().WriteToken(token);
             return Ok(new ResponseResult(200, strToken));
         }
-
     }
 }

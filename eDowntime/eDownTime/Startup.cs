@@ -26,7 +26,13 @@ namespace eDownTime
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddControllersWithViews();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
             {
                 option.LoginPath = "/Account/Login";
@@ -34,7 +40,7 @@ namespace eDownTime
                 option.LogoutPath = "/Account/Logout";
 
             });
-            services.AddControllersWithViews();
+            //services.AddControllersWithViews();
             services.AddTransient<IActionService, ActionService>();
             services.AddTransient<ICommonService, CommonService>();
             services.AddTransient<IAdminService, AdminService>();
@@ -52,10 +58,15 @@ namespace eDownTime
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCookiePolicy();
+
+            app.UseAuthentication();  // The order is critical for security, performance, and functionality
 
             app.UseAuthorization();
 

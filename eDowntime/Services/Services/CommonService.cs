@@ -22,10 +22,10 @@ namespace Services.Services
             return list;
         }
 
-        public async Task<List<VCustomer>> Customer_Get()
+        public async Task<List<VCustomer>> Customer_Get(string NtLogin)
         {
             List<VCustomer> list = new List<VCustomer>();
-            using (var response = await httpClient.GetAsync("api/common/Customer_Get"))
+            using (var response = await httpClient.GetAsync("api/common/Customer_Get/"+ NtLogin))
             {
                 var apiResponse = await response.Content.ReadAsStringAsync();
                 list = JsonConvert.DeserializeObject<List<VCustomer>>(apiResponse);

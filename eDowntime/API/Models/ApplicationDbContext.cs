@@ -21,13 +21,15 @@ namespace API.Models
 
         //Scaffold-DbContext "Data Source=VNHCMC0SQL81;Initial Catalog=TE_HCS;User Id=TE_HCS_USER;Password=Zxcvbnm123!@;MultipleActiveResultSets=true;" Microsoft.EntityFrameworkCore.SqlServer -Tables "CPCC_Master_Matrix" -OutputDir Models1
         public virtual DbSet<EDtAction> EDtAction { get; set; }
-        public virtual DbSet<EDtAccessUserRole> EDtAccessUserRole { get; set; }
+        public virtual DbSet<AccessUserRole> AccessUserRole { get; set; }
 
         public virtual DbQuery<VAction> Action { get; set; }
         public virtual DbQuery<VCustomer> Customer { get; set; }
         public virtual DbQuery<VCategory> Category { get; set; }
         public virtual DbQuery<VWorkWeek> WorkWeek { get; set; }
         public virtual DbQuery<VUserRole> UserRole { get; set; }
+        public virtual DbQuery<VRole> Role { get; set; }
+        public virtual DbQuery<VUser> User { get; set; }
 
 
 
@@ -36,7 +38,7 @@ namespace API.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=VNHCMC0SQL81;Initial Catalog=TE_HCS;User Id=TE_HCS_USER;Password=Zxcvbnm123!@;MultipleActiveResultSets=true;");
+                optionsBuilder.UseSqlServer("Data Source=VNHCMC0SQL81;Initial Catalog=eDowntime;User Id=eDowntime_User;Password=zKhU$~R;MultipleActiveResultSets=true;");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -125,11 +127,11 @@ namespace API.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-            modelBuilder.Entity<EDtAccessUserRole>(entity =>
+            modelBuilder.Entity<AccessUserRole>(entity =>
             {
                 entity.HasKey(e => e.UserRoleId);
 
-                entity.ToTable("eDT_Access_UserRole");
+                entity.ToTable("Access_UserRole");
 
                 entity.Property(e => e.UserRoleId).HasColumnName("userRoleId");
 
@@ -143,6 +145,11 @@ namespace API.Models
                     .HasColumnType("datetime");
 
                 entity.Property(e => e.CustId).HasColumnName("custID");
+
+                entity.Property(e => e.CustName)
+                    .HasColumnName("custName")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
 

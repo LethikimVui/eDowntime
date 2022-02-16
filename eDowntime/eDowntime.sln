@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{40D0E2DD-81C3-470B-9154-2581B7720E96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{40D0E2DD-81C3-470B-9154-2581B7720E96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedObjects", "SharedObjects\SharedObjects.csproj", "{A3E143D4-BC37-4F51-8D39-31C9C9207405}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{6F0A8556-1C08-416A-908E-3F924A415BD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDownTime", "eDownTime\eDownTime.csproj", "{3111069B-8EEE-4083-8DB1-AD23B642DCAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eDownTime", "eDownTime\eDownTime.csproj", "{3111069B-8EEE-4083-8DB1-AD23B642DCAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DowntimeUpdate", "DowntimeUpdate\DowntimeUpdate.csproj", "{E97774D7-777D-44A6-8C63-71194396F39B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3111069B-8EEE-4083-8DB1-AD23B642DCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3111069B-8EEE-4083-8DB1-AD23B642DCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3111069B-8EEE-4083-8DB1-AD23B642DCAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E97774D7-777D-44A6-8C63-71194396F39B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97774D7-777D-44A6-8C63-71194396F39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97774D7-777D-44A6-8C63-71194396F39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97774D7-777D-44A6-8C63-71194396F39B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

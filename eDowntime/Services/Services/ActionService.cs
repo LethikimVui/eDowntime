@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Services.Interfaces;
+using SharedObjects.Common;
 using SharedObjects.ValueObjects;
 using SharedObjects.ViewModels;
 using System;
@@ -23,6 +24,18 @@ namespace Services.Services
                 list = JsonConvert.DeserializeObject<List<VAction>>(apiResponse);
             }
             return list;
+        }
+
+        public async Task<ResponseResult> Acton_update(ActionViewModel model)
+        {
+            ResponseResult result = new ResponseResult();
+            StringContent content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+            using (var response = await httpClient.PostAsync("api/action/Acton_update", content))
+            {
+                var apiResponse = await response.Content.ReadAsStringAsync();
+                result = JsonConvert.DeserializeObject<ResponseResult>(apiResponse);
+            }
+            return result;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SharedObjects.ValueObjects
         public string UserName { get; set; }
         public byte RoleId { get; set; }
         public byte PlantId { get; set; }
-        public byte CustId { get; set; }
+        public byte? CustId { get; set; }
         public byte? IsActive { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? CreationDate { get; set; }

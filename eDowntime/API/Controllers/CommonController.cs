@@ -22,11 +22,11 @@ namespace API.Controllers
             this.context = context;
         }
 
-        [HttpGet("Customer_Get")]
+        [HttpGet("Customer_Get/{NtLogin}")]
         [Obsolete]
-        public async Task<List<VCustomer>> Master_Customer_Get()
+        public async Task<List<VCustomer>> Customer_Get(string NtLogin)
         {
-            var results = await context.Query<VCustomer>().AsNoTracking().FromSql(SPCommon.Customer_Get).ToListAsync();
+            var results = await context.Query<VCustomer>().AsNoTracking().FromSql(SPCommon.Customer_Get, NtLogin).ToListAsync();
             return results;
         }
         [HttpGet("Category_get")]

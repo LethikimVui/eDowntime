@@ -1,4 +1,5 @@
-﻿using SharedObjects.ValueObjects;
+﻿using SharedObjects.Common;
+using SharedObjects.ValueObjects;
 using SharedObjects.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,7 @@ namespace Services.Interfaces
    public interface IActionService
     {
         Task<List<VAction>> Action_get(ActionViewModel model);
+        Task<ResponseResult> Acton_update(ActionViewModel model);
+
     }
 }

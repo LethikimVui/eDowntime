@@ -13,7 +13,7 @@ namespace SharedObjects.ViewModels
         public int UserRoleId { get; set; }
         public int OwnerId { get; set; }
         public byte PlantId { get; set; }
-        public byte CustId { get; set; }
+        public string CustName { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
     }
