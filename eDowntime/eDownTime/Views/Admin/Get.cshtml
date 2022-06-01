@@ -18,7 +18,7 @@
                             Administration - User Role
                         </span>
                     </div>
-                    <form id="frm-save-debugdata-body">
+                    <form id="frm-save">
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
                                 <tr class="text-center bold">
@@ -53,8 +53,10 @@
                                     </td>
 
                                     <td>
-                                        <select class="form-control" id="txt-custId">
+                                        <select class="form-control" id="txt-custId" name="custName">
                                             <option value="">--Please Select--</option>
+                                            <option value="None">None</option>
+
                                             @foreach (var item in WCs.OrderByDescending(c => c.CustName).ToList())
                                             {
                                                 <option value=@item.CustName>@item.CustName</option>
@@ -105,7 +107,7 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Edit User Role</h4>
+                <h4 class="modal-title">Edit User</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -134,20 +136,19 @@
                 <div class="form-group">
                     <label for="">WorkCell</label>
                     <select class="form-control" id="txt-custid">
-                        <option value="">--Please Select--</option>
+                        @*<option value="">--Please Select--</option>
+                        <option value="0">None</option>*@
                         @foreach (var item in WCs.OrderByDescending(c => c.CustName).ToList())
                         {
                             <option value=@item.CustName>@item.CustName</option>
                         }
                     </select>
                 </div>
-
             </form>
             <!-- Modal footer -->
             <div class="modal-footer" id="roleId">
                 <button type="button" class="btn default" data-dismiss="modal" id="btn-save">Save</button>
             </div>
-
         </div>
     </div>
 </div>

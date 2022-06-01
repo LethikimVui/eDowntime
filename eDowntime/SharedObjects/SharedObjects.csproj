@@ -52,6 +52,7 @@
     <Compile Include="StoredProcedure\SPAction.cs" />
     <Compile Include="StoredProcedure\SPAdmin.cs" />
     <Compile Include="StoredProcedure\SPCommon.cs" />
+    <Compile Include="ValueObjects\StationName.cs" />
     <Compile Include="ValueObjects\VRole.cs" />
     <Compile Include="ValueObjects\VAction.cs" />
     <Compile Include="ValueObjects\VCustomer.cs" />

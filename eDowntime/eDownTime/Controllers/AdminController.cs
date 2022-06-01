@@ -7,9 +7,11 @@ using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Threading.Tasks;
 using SharedObjects.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eDownTime.Controllers
 {
+    [Authorize(Roles = "System Admin")]
     public class AdminController : Controller
     {
         private readonly IAdminService adminService;
@@ -41,7 +43,6 @@ namespace eDownTime.Controllers
                 if (userPrincipal != null)
                 {
                     return userPrincipal.DisplayName;
-
                 }
                 else
                 {
@@ -57,16 +58,13 @@ namespace eDownTime.Controllers
             ViewData["customers"] = await commonService.Customer_Get(NtLogin);
             return View(userRoles);
         }
-
         public async Task<IActionResult> Access_UserRole_insert([FromBody] UserRoleViewModel model)
         {
-
             var result = await adminService.Access_UserRole_insert(model);
             return Json(new { results = result });
         }
         public async Task<IActionResult> Access_UserRole_update([FromBody] UserRoleViewModel model)
         {
-
             var result = await adminService.Access_UserRole_update(model);
             return Json(new { results = result });
         }

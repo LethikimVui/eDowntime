@@ -12,7 +12,8 @@ namespace SharedObjects.ViewModels
         public string CustName { get; set; }
         public string Yyww { get; set; }
         public string Category { get; set; }
-
+        public string Station { get; set; }
+        public string StationName { get; set; }
         public string ProblemDescription { get; set; }
         public string RootCause { get; set; }
         public string ContainmentAction { get; set; }
@@ -22,7 +23,9 @@ namespace SharedObjects.ViewModels
         public string Fia { get; set; }
         public string Responsible { get; set; }
         public string CommitDate { get; set; }
+        public string Remark { get; set; }
         public string UpdatedBy { get; set; }
+        public string FileName { get; set; }
 
     }
 }

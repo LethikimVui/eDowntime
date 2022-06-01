@@ -29,37 +29,147 @@
         })
 
     }
+    //$('#frm-save').validate({
+    //    rules: {
 
+    //        fm:
+    //        {
+    //            required: true,
+    //        },
+    //        rc:
+    //        {
+    //            required: true,
+    //        },
+    //        ca:
+    //        {
+    //            required: true,
+    //        },
+    //        cpa:
+    //        {
+    //            required: true,
+    //        },
+    //        pt:
+    //        {
+    //            required: true,
+    //        },
+    //        fano:
+    //        {
+    //            required: true,
+    //        },
+    //        datecode:
+    //        {
+    //            required: true,
+    //        },
+    //        mfr:
+    //        {
+    //            required: true,
+    //        },
+    //        fia:
+    //        {
+    //            required: true,
+    //        },
+    //        fiano:
+    //        {
+    //            required: true,
+    //        },
+    //        person:
+    //        {
+    //            required: true,
+    //        },
+    //        ws:
+    //        {
+    //            required: true,
+    //        },
+    //    },
+    //    messages: {
+    //        rc:
+    //        {
+    //            required: "You need to fill in Root Cause",
+    //        },
+    //        fm:
+    //        {
+    //            required: "You need to fill in Failure Mode",
+
+    //        },
+    //        fano:
+    //        {
+    //            required: "You need to fill in FA No.",
+
+    //        },
+    //        pt:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //        cpa:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //        datecode:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //        mfr:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //        fia:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //        fiano:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //        person:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //        ws:
+    //        {
+    //            required: "You need to select this field",
+    //        },
+    //    }
+    //});
     function Add() {
-        var model = new Object();
-        model.Ntlogin = $('#txt-Ntlogin').val();
-        model.RoleId = parseInt(document.getElementById("txt-roleId").value);
-        model.PlantId = 1 // parseInt(document.getElementById("txt-wc").value);
-        model.CustName = document.getElementById("txt-custId").value;
-        model.CreatedBy = user;
-        debugger
-        $.ajax({
-            type: 'post',
-            url: '/admin/Access_UserRole_insert',
-            data: JSON.stringify(model),
-            contentType: "application/json; charset=utf-8",
+        ntlogin = $('#txt-Ntlogin').val();
+        roleId = parseInt(document.getElementById("txt-roleId").value);
+        custname = document.getElementById("txt-custId").value;
+        if (ntlogin && roleId && custname) {
 
-            success: function (response) {
-                var data = response.results
+            var model = new Object();
+            model.Ntlogin = ntlogin
+            model.RoleId = roleId
+            model.PlantId = 1 // parseInt(document.getElementById("txt-wc").value);
+            model.CustName = custname
+            model.CreatedBy = user;
+            debugger
+            $.ajax({
+                type: 'post',
+                url: '/admin/Access_UserRole_insert',
+                data: JSON.stringify(model),
+                contentType: "application/json; charset=utf-8",
 
-                if (data.statusCode == 200) {
-                    bootbox.alert(data.message, function () {
-                        location.reload(true);
-                    })
+                success: function (response) {
+                    var data = response.results
+
+                    if (data.statusCode == 200) {
+                        bootbox.alert(data.message, function () {
+                            location.reload(true);
+                        })
+                    }
+                    else if (data.statusCode == 400) {
+                        bootbox.alert(data.message)
+                    }
+                    else {
+                        bootbox.alert("Update Error!")
+                    }
                 }
-                else if (data.statusCode == 400) {
-                    bootbox.alert(data.message)
-                }
-                else {
-                    bootbox.alert("Update Error!")
-                }
-            }
-        })
+            })
+
+        }
+        else {
+            bootbox.alert("Please select all required inputs");
+        }
     }
 
     function Edit() {

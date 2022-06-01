@@ -2,8 +2,8 @@
 
 @{
     var customers = ViewData["customers"] as List<SharedObjects.ValueObjects.VCustomer>;
-    var Category = ViewData["Category"] as List<SharedObjects.ValueObjects.VCategory>;
-    var yyww = ViewData["yyww"] as List<SharedObjects.ValueObjects.VWorkWeek>;
+    //var Category = ViewData["Category"] as List<SharedObjects.ValueObjects.VCategory>;
+    //var yyww = ViewData["yyww"] as List<SharedObjects.ValueObjects.VWorkWeek>;
     ViewData["Title"] = "Q3";
 }
 
@@ -35,10 +35,10 @@
                         <select class="form-control" id="txt-ww-search" style="height: 34px !important; color: mediumvioletred">
                             <option value="">--Please Select--</option>
 
-                            @foreach (var item in yyww.OrderByDescending(c => c.Yyww).ToList())
-                            {
-                                <option value=@item.Yyww>@item.Yyww</option>
-                            }
+                            @*@foreach (var item in yyww.OrderByDescending(c => c.Yyww).ToList())
+                                {
+                                    <option value=@item.Yyww>@item.Yyww</option>
+                                }*@
                         </select>
                     </div>
                     <div class="form-group col-md-2 pull-left">
@@ -46,10 +46,27 @@
                         <select class="form-control" id="txt-cat-search" style="height: 34px !important; color: mediumvioletred">
                             <option value="">--Please Select--</option>
 
-                            @foreach (var item in Category.OrderBy(c => c.Category).ToList())
-                            {
-                                <option value=@item.Category>@item.Category</option>
-                            }
+                            @*@foreach (var item in Category.OrderBy(c => c.Category).ToList())
+                                {
+                                    <option value=@item.Category>@item.Category</option>
+                                }*@
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Station</label>
+                        <select class="form-control" id="txt-station-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+                            <option value="AOI">AOI</option>
+                            <option value="AXI">AXI</option>
+                            <option value="ICT">ICT</option>
+                            <option value="FVT">FVT</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Station Name</label>
+                        <select class="form-control" id="txt-stationname-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+
                         </select>
                     </div>
                     <div class="form-group col-md-12">
@@ -92,6 +109,14 @@
                     <label for="" class="form-control" id="txt-wc" style="background-color:lightskyblue"></label>
                 </div>
                 <div class="form-group">
+                    <label for="">Station</label>
+                    <label for="" class="form-control" id="txt-station" style="background-color:lightskyblue"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">Station Name</label>
+                    <label for="" class="form-control" id="txt-stationname" style="background-color:lightskyblue"></label>
+                </div>
+                <div class="form-group">
                     <label for="">Downtime Category</label>
                     <label for="" class="form-control" id="txt-category" style="background-color:lightskyblue"></label>
                 </div>
@@ -99,9 +124,14 @@
                     <label for="">Downtime Details</label>
                     <label for="" class="form-control" id="txt-details" style="background-color:lightskyblue"></label>
                 </div>
+
                 <div class="form-group">
                     <label for="">Total Downtime</label>
                     <label for="" class="form-control" id="txt-totaldt" style="background-color:lightskyblue"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">% Impact vs Overall</label>
+                    <label class="form-control" id="txt-overalimpact" style="background-color:lightskyblue"></label>
                 </div>
                 <div class="form-group">
                     <label for="">Problem Description</label>
@@ -123,11 +153,6 @@
                     <textarea class="form-control" id="txt-capa" name="capa" rows="7"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">% Impact vs Overall</label>
-                    <textarea class="form-control" id="txt-overalimpact" name="overalimpact" rows="7"></textarea>
-                </div>
-
-                <div class="form-group">
                     <label for="">ECN/PCN/NA</label>
                     <textarea class="form-control" id="txt-ecnpcn" name="ecnpcn" rows="7"></textarea>
                 </div>
@@ -141,18 +166,24 @@
                 </div>
                 <div class="form-group">
                     <label for="">Commit Date</label>
-                    <input type="datetime" class="form-control" id="txt-commitdate" name="commitdate" autocomplete="off" />
+                    <input type="date" class="form-control" id="txt-commitdate" name="commitdate" autocomplete="off" />
                 </div>
                 <div class="form-group">
                     <label for="">Status</label>
-                    <textarea class="form-control" id="txt-ws" name="ws" rows="7"></textarea>
+                    <textarea class="form-control" id="txt-status" name="status" rows="7"></textarea>
                 </div>
-                @*<div class="form-group">
-                    <input id="attachment" type=file multiple name="files" onclick="this.value=''" accept=".xlsx">
+                <div class="form-group">
+                    <input id="upload" type=file multiple name="files[]" accept=".xlsx">
                 </div>
                 <div id="fileList">
-                </div>*@
-
+                </div>
+                @*<div class="form-group custom-file">
+                    <input type="file" class="custom-file-input" id="file" multiple onchange="javascript:updateList()" border="" />
+                    <label class="custom-file-label" for="file">
+                        Choose Attachment
+                    </label>
+                </div>
+                <ul id="fileList" class="file-list"></ul>*@
 
             </form>
             <!-- Modal footer -->
@@ -169,4 +200,6 @@
 
 @section Scripts {
     <script src="~/js/action.js"></script>
+    <script type="text/javascript" src="~/js/common.js"></script>
+
 }

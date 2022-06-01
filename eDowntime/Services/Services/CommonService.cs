@@ -11,10 +11,10 @@ namespace Services.Services
 {
     public class CommonService : BaseService, ICommonService
     {
-        public async Task<List<VCategory>> Category_get()
+        public async Task<List<VCategory>> Category_get(string custName)
         {
             var list = new List<VCategory>();
-            using (var response = await httpClient.GetAsync("api/common/Category_get"))
+            using (var response = await httpClient.GetAsync("api/common/Category_get/" + custName))
             {
                 var apiResponse = await response.Content.ReadAsStringAsync();
                 list = JsonConvert.DeserializeObject<List<VCategory>>(apiResponse);
@@ -33,10 +33,21 @@ namespace Services.Services
             return list;
         }
 
-        public async Task<List<VWorkWeek>> WorkWeek_get()
+        public async Task<List<VStationName>> StationName_get(string station)
+        {
+            var stationName = new List<VStationName>();
+            using(var response = await httpClient.GetAsync("api/common/StationName_get/" + station))
+            {
+                var apiResponse = await response.Content.ReadAsStringAsync();
+                stationName = JsonConvert.DeserializeObject<List<VStationName>>(apiResponse);
+            }
+            return stationName;
+        }
+
+        public async Task<List<VWorkWeek>> WorkWeek_get(string custName)
         {
             List<VWorkWeek> list = new List<VWorkWeek>();
-            using (var response = await httpClient.GetAsync("api/common/WorkWeek_get"))
+            using (var response = await httpClient.GetAsync("api/common/WorkWeek_get/" + custName))
             {
                 var apiResponse = await response.Content.ReadAsStringAsync();
                 list = JsonConvert.DeserializeObject<List<VWorkWeek>>(apiResponse);

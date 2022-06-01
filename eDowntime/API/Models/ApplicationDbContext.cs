@@ -27,6 +27,7 @@ namespace API.Models
         public virtual DbQuery<VCustomer> Customer { get; set; }
         public virtual DbQuery<VCategory> Category { get; set; }
         public virtual DbQuery<VWorkWeek> WorkWeek { get; set; }
+        public virtual DbQuery<VStationName> StationName { get; set; }
         public virtual DbQuery<VUserRole> UserRole { get; set; }
         public virtual DbQuery<VRole> Role { get; set; }
         public virtual DbQuery<VUser> User { get; set; }

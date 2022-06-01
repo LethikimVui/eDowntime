@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 
 namespace eDownTime.Controllers
 {
+    
     public class AccountController : Controller
     {
         private readonly IAccountService accountService;

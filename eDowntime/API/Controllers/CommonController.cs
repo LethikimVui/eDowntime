@@ -29,18 +29,25 @@ namespace API.Controllers
             var results = await context.Query<VCustomer>().AsNoTracking().FromSql(SPCommon.Customer_Get, NtLogin).ToListAsync();
             return results;
         }
-        [HttpGet("Category_get")]
+        [HttpGet("Category_get/{custName}")]
         [Obsolete]
-        public async Task<List<VCategory>> Category_get()
+        public async Task<List<VCategory>> Category_get(string custName)
         {
-            var results = await context.Query<VCategory>().AsNoTracking().FromSql(SPCommon.Category_get).ToListAsync();
+            var results = await context.Query<VCategory>().AsNoTracking().FromSql(SPCommon.Category_get, custName).ToListAsync();
             return results;
         }
-        [HttpGet("WorkWeek_get")]
+        [HttpGet("WorkWeek_get/{custName}")]
         [Obsolete]
-        public async Task<List<VWorkWeek>> WorkWeek_get()
+        public async Task<List<VWorkWeek>> WorkWeek_get(string custName)
         {
-            var results = await context.Query<VWorkWeek>().AsNoTracking().FromSql(SPCommon.WorkWeek_get).ToListAsync();
+            var results = await context.Query<VWorkWeek>().AsNoTracking().FromSql(SPCommon.WorkWeek_get, custName).ToListAsync();
+            return results;
+        }
+        [HttpGet("StationName_get/{station}")]
+        [Obsolete]
+        public async Task<List<VStationName>> StationName_get(string station)
+        {
+            var results = await context.Query<VStationName>().AsNoTracking().FromSql(SPCommon.StationName_get, station).ToListAsync();
             return results;
         }
     }

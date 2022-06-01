@@ -9,7 +9,8 @@ namespace SharedObjects.StoredProcedure
     public class SPCommon
     {
         public static string Customer_Get = "usp_Customer_Get @p0";
-        public static string Category_get = "usp_Category_get";
-        public static string WorkWeek_get = "usp_WorkWeek_get";
+        public static string StationName_get = "usp_StationName_get @p0";
+        public static string Category_get = "usp_Category_get @p0";
+        public static string WorkWeek_get = "usp_WorkWeek_get @p0";
     }
 }

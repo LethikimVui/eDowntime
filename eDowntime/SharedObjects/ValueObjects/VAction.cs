@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharedObjects.ValueObjects
 {
-   public class VAction
+    public class VAction
     {
         public int ActionId { get; set; }
         public string Yyww { get; set; }
@@ -28,5 +28,8 @@ namespace SharedObjects.ValueObjects
         public byte StatusId { get; set; }
         public string Status { get; set; }
         public string ColorCode { get; set; }
+        public string Station { get; set; }
+        public string StationName { get; set; }
+        public string FileName { get; set; }
     }
 }

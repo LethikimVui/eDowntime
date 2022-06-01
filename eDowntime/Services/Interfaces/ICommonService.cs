@@ -10,7 +10,8 @@ namespace Services.Interfaces
    public interface ICommonService
     {
         Task<List<VCustomer>> Customer_Get(string NtLogin);
-        Task<List<VCategory>> Category_get();
-        Task<List<VWorkWeek>> WorkWeek_get();
+        Task<List<VStationName>> StationName_get(string station);
+        Task<List<VCategory>> Category_get(string custName);
+        Task<List<VWorkWeek>> WorkWeek_get(string custName);
     }
 }

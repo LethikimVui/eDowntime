@@ -26,11 +26,11 @@ namespace Services.Services
             return list;
         }
 
-        public async Task<ResponseResult> Acton_update(ActionViewModel model)
+        public async Task<ResponseResult> Action_update(ActionViewModel model)
         {
             ResponseResult result = new ResponseResult();
             StringContent content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            using (var response = await httpClient.PostAsync("api/action/Acton_update", content))
+            using (var response = await httpClient.PostAsync("api/action/Action_update", content))
             {
                 var apiResponse = await response.Content.ReadAsStringAsync();
                 result = JsonConvert.DeserializeObject<ResponseResult>(apiResponse);

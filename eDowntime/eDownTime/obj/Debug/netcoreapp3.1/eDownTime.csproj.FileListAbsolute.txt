@@ -19,7 +19,6 @@ C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDownti
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
-C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -154,3 +153,4 @@ C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDownti
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Get.cshtml.g.cs
+C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\eDownTime\obj\Debug\netcoreapp3.1\Razor\Views\Home\AccessDenied.cshtml.g.cs
