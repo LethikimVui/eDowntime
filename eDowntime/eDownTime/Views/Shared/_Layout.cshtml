@@ -85,7 +85,7 @@
                                                     <ul class="mega-menu-submenu">
 
                                                         <li>
-                                                            <a asp-action="Get" asp-controller="Admin">
+                                                            <a asp-action="Search" asp-controller="Admin">
                                                                 <i class="icon-user"></i> User Role
                                                             </a>
                                                         </li>
@@ -108,7 +108,7 @@
                         <li class="dropdown dropdown-user dropdown-dark" style="position: absolute; right: 0px;top:0px">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <a id="userinfo" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" data-user="@User.GetSpecificClaim("Ntlogin")" data-display-name="@User.GetSpecificClaim("UserName")" data-email="@User.GetSpecificClaim("Email")">
+                                <a id="userinfo" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" data-user="@User.GetSpecificClaim("Ntlogin")" data-display-name="@User.GetSpecificClaim("UserName")" data-email="@User.GetSpecificClaim("UserEmail")">
                                     <img alt="" class="img-circle" src="~/assets/admin/layout3/img/logout.png" style="width: 25px">
                                     Hi @User.GetSpecificClaim("UserName") (@User.GetSpecificClaim("Ntlogin"))
                                 </a>

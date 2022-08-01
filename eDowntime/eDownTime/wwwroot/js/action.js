@@ -1,9 +1,12 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
 
     $('body').off('click', '#btn-search').on('click', '#btn-search', Load)
     $('body').off('click', '#btn-edit').on('click', '#btn-edit', Edit)
 
-    var user = document.getElementById('userinfo').getAttribute('data-user');
+    var user = document.getElementById('userinfo').getAttribute('data-user');   
+
+    
 
     //LoadData()
     function Load() {
@@ -37,6 +40,7 @@
     }
 
     function Edit() {
+        $(this).find('form').trigger('reset');
         var model = new Object();
         actionId = parseInt($(this).data('id'))
         model.ActionId = actionId
@@ -69,6 +73,7 @@
                 $('#txt-commitdate').val(data.commitDate);
                 $('#txt-status').text(data.remark);
                 $('#actionId').val(actionId);
+                actionId = null;
             }
         })
 
@@ -141,7 +146,7 @@
                     bootbox.alert("Save Successfully!", function () { LoadData(); })
                 }
                 else
-                    bootbox.alert("Save Failed!")
+                    bootbox.alert(data.message)
             }
         })
     }

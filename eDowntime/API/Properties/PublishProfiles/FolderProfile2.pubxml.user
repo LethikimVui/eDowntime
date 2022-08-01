@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>\\vnhcmm0teapp02\wwwroot\eDowntime\APITest</_PublishTargetUrl>
+    <History>True|2022-07-04T02:24:17.9497255Z;True|2022-06-29T15:46:43.3692831+07:00;True|2022-06-29T15:25:51.6773412+07:00;True|2022-06-29T14:49:26.8231783+07:00;</History>
+  </PropertyGroup>
+</Project>

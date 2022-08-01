@@ -51,7 +51,7 @@ namespace eDownTime.Controllers
             return Json( new { results = results.FirstOrDefault()});
         }
         [HttpPost]
-        public async Task<IActionResult> Acton_update([FromBody] ActionViewModel model)
+        public async Task<IActionResult> Action_update([FromBody] ActionViewModel model)
         {
             //if (model.ActionCode == 2)
             //{

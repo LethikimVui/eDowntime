@@ -50,6 +50,48 @@ namespace eDownTime.Controllers
                 }
             }
         }
+        static string EmailAddress(string userName)
+        {
+            var EmailAddress = "";
+            using (PrincipalContext context = new PrincipalContext(ContextType.Domain))
+            {
+                var userPrincipal = UserPrincipal.FindByIdentity(context, userName);
+                EmailAddress = userPrincipal.EmailAddress;
+
+            }
+            return EmailAddress;
+        }
+        static string DisplayName(string userName)
+        {
+            var DisplayName = "";
+            using (PrincipalContext context = new PrincipalContext(ContextType.Domain))
+            {
+                var userPrincipal = UserPrincipal.FindByIdentity(context, userName);
+                DisplayName = userPrincipal.DisplayName;
+
+            }
+            return DisplayName;
+        }
+        public async Task<IActionResult> Search()
+        {
+            var NtLogin = User.GetSpecificClaim("Ntlogin");
+            var roles = await adminService.Access_Role_get();
+            ViewData["Customers"] = await commonService.Customer_Get(NtLogin);
+            ViewData["roles"] = roles;
+            return View();
+        }
+      
+        public async Task<IActionResult> User_Get([FromBody] UserRoleViewModel model)
+        {
+            var NtLogin = User.GetSpecificClaim("Ntlogin");
+
+            var userRoles = await adminService.Access_UserRole_get(model);
+            var roles = await adminService.Access_Role_get();
+            ViewData["Customers"] = await commonService.Customer_Get(NtLogin);
+
+            ViewData["roles"] = roles;
+            return PartialView(userRoles);
+        }
         public async Task<IActionResult> Get()
         {
             var NtLogin = User.GetSpecificClaim("Ntlogin");
@@ -60,6 +102,8 @@ namespace eDownTime.Controllers
         }
         public async Task<IActionResult> Access_UserRole_insert([FromBody] UserRoleViewModel model)
         {
+            model.UserName = DisplayName(model.Ntlogin);
+            model.UserEmail = EmailAddress(model.Ntlogin);
             var result = await adminService.Access_UserRole_insert(model);
             return Json(new { results = result });
         }

@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    $('body').off('click', '#btn-search').on('click', '#btn-search', Search);
+
     $('body').off('click', '#btn-add').on('click', '#btn-add', Add);
     $('body').off('click', '#btn-delete').on('click', '#btn-delete', Delete);
     $('body').off('click', '#btn-search-input').on('click', '#btn-search-input', SearchName);
@@ -6,8 +8,34 @@
     $('body').off('click', '#btn-save').on('click', '#btn-save', Save);
 
 
-    var user = document.getElementById('userinfo').getAttribute('data-user');
+    user = document.getElementById('userinfo').getAttribute('data-user');
+    name = document.getElementById('userinfo').getAttribute('data-display-name');
+    email = document.getElementById('userinfo').getAttribute('data-email');
 
+    function Search() {
+        $('#tbl-content').html('');
+        var model = new Object();
+
+        model.CustName = $("#txt-customer-search").val() ? $("#txt-customer-search").val() : null;
+        model.RoleId = $("#txt-role-search").val() ? parseInt($("#txt-role-search").val()) : 0;
+        model.Ntlogin = $('#txt-ntlogin-search').val() ? $('#txt-ntlogin-search').val() : null;
+        debugger
+        Load(model)
+
+    }
+    function Load(model) {
+        $.ajax({
+            type: 'post',
+            url: '/Admin/User_Get',
+            //dataType: 'json',
+            data: JSON.stringify(model),
+            contentType: 'application/json;charset=uft-8',
+            success: function (response) {
+                debugger
+                $('#tbl-content').html(response);
+            }
+        })
+    }
     function SearchName() {
         _ntid = $('#txt-search-input').val();
         debugger
@@ -29,107 +57,7 @@
         })
 
     }
-    //$('#frm-save').validate({
-    //    rules: {
 
-    //        fm:
-    //        {
-    //            required: true,
-    //        },
-    //        rc:
-    //        {
-    //            required: true,
-    //        },
-    //        ca:
-    //        {
-    //            required: true,
-    //        },
-    //        cpa:
-    //        {
-    //            required: true,
-    //        },
-    //        pt:
-    //        {
-    //            required: true,
-    //        },
-    //        fano:
-    //        {
-    //            required: true,
-    //        },
-    //        datecode:
-    //        {
-    //            required: true,
-    //        },
-    //        mfr:
-    //        {
-    //            required: true,
-    //        },
-    //        fia:
-    //        {
-    //            required: true,
-    //        },
-    //        fiano:
-    //        {
-    //            required: true,
-    //        },
-    //        person:
-    //        {
-    //            required: true,
-    //        },
-    //        ws:
-    //        {
-    //            required: true,
-    //        },
-    //    },
-    //    messages: {
-    //        rc:
-    //        {
-    //            required: "You need to fill in Root Cause",
-    //        },
-    //        fm:
-    //        {
-    //            required: "You need to fill in Failure Mode",
-
-    //        },
-    //        fano:
-    //        {
-    //            required: "You need to fill in FA No.",
-
-    //        },
-    //        pt:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //        cpa:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //        datecode:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //        mfr:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //        fia:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //        fiano:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //        person:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //        ws:
-    //        {
-    //            required: "You need to select this field",
-    //        },
-    //    }
-    //});
     function Add() {
         ntlogin = $('#txt-Ntlogin').val();
         roleId = parseInt(document.getElementById("txt-roleId").value);
@@ -142,6 +70,8 @@
             model.PlantId = 1 // parseInt(document.getElementById("txt-wc").value);
             model.CustName = custname
             model.CreatedBy = user;
+            model.CreatedName = name;
+            model.CreatedEmail = email;
             debugger
             $.ajax({
                 type: 'post',
@@ -157,11 +87,8 @@
                             location.reload(true);
                         })
                     }
-                    else if (data.statusCode == 400) {
-                        bootbox.alert(data.message)
-                    }
                     else {
-                        bootbox.alert("Update Error!")
+                        bootbox.alert(data.message)
                     }
                 }
             })
@@ -201,6 +128,8 @@
         model.CustName = $('#txt-custid').val();
         model.RoleId = parseInt($('#txt-roleid').val());
         model.UpdatedBy = user;
+        model.UpdatedName = name;
+        model.UpdatedEmail = email;
         debugger
         $.ajax({
             type: 'post',
@@ -215,7 +144,7 @@
                     bootbox.alert("Save Successfully!", function () { window.location.reload(); })
                 }
                 else
-                    bootbox.alert("Save Failed!")
+                    bootbox.alert(data.message)
             }
         })
 
@@ -223,28 +152,36 @@
 
     function Delete() {
         userRoleId = $(this).attr('data-id');
+        userName = $(this).attr('data-name');
         debugger
         ntlogin = $(this).attr('data-ntlogin');
-        var model = new Object();
-        model.UserRoleId = parseInt(userRoleId);
-        model.UpdatedBy = user;
-        $.ajax({
-            type: 'post',
-            url: '/admin/Access_UserRole_delete',
-            data: JSON.stringify(model),
-            contentType: "application/json; charset=utf-8",
-            success: function (response) {
+        bootbox.confirm(`Are you sure to delete ${userName} ?`, function (result) {
+            if (result) {
 
-                var data = response.results;
-                if (data.statusCode == 200) {
-                    bootbox.alert(`${ntlogin} is deleted`, function () {
-                        location.reload(true);
-                    })
-                }
-                else {
-                    bootbox.alert("Error");
-                }
+                var model = new Object();
+                model.UserRoleId = parseInt(userRoleId);
+                model.UpdatedBy = user;
+                model.UpdatedName = name;
+                model.UpdatedEmail = email;
+                $.ajax({
+                    type: 'post',
+                    url: '/admin/Access_UserRole_delete',
+                    data: JSON.stringify(model),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (response) {
 
+                        var data = response.results;
+                        if (data.statusCode == 200) {
+                            bootbox.alert(`${ntlogin} is deleted`, function () {
+                                location.reload(true);
+                            })
+                        }
+                        else {
+                            bootbox.alert(data.message);
+                        }
+
+                    }
+                })
             }
         })
     }

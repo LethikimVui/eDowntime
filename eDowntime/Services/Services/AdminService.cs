@@ -82,5 +82,17 @@ namespace Services.Services
             }
             return responseResult;
         }
+
+        public async Task<List<VUserRole>> Access_UserRole_get(UserRoleViewModel model)
+        {
+            List<VUserRole> result = new List<VUserRole>();
+            StringContent content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+            using (var response = await httpClient.PostAsync("api/admin/Access_UserRole_get", content))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                result = JsonConvert.DeserializeObject<List<VUserRole>>(apiResponse);
+            }
+            return result;
+        }
     }
 }

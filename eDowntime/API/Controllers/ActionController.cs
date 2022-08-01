@@ -40,9 +40,9 @@ namespace API.Controllers
                 await context.Database.ExecuteSqlCommandAsync(SPAction.Action_update, model.ActionId, model.ProblemDescription, model.RootCause, model.ContainmentAction, model.Capa, model.Ecnpcn, model.Fia, model.Responsible, model.CommitDate, model.Remark, model.FileName, model.UpdatedBy);
                 return Ok(new ResponseResult(200));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(new ResponseResult(400, "Save failed"));
+                return BadRequest(new ResponseResult(400, ex.Message));
             }
 
         }

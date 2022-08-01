@@ -37,6 +37,13 @@ namespace API.Controllers
             var results = await context.Query<VUserRole>().AsNoTracking().FromSql(SPAdmin.Access_UserRole_get).ToListAsync();
             return results;
         }
+        [HttpPost("Access_UserRole_get")]
+        [Obsolete]
+        public async Task<List<VUserRole>> Access_UserRole_get(UserRoleViewModel model)
+        {
+            var results = await context.Query<VUserRole>().AsNoTracking().FromSql(SPAdmin.Access_UserRole_get, model.RoleId, model.CustName, model.Ntlogin).ToListAsync();
+            return results;
+        }
         [HttpGet("Access_UserRole_Get_By_Id/{id}")]
         [Obsolete]
         public async Task<List<VUserRole>> Access_UserRole_Get_By_Id(int id)
@@ -53,7 +60,7 @@ namespace API.Controllers
             {
                 if (!context.AccessUserRole.Where(x => (x.Ntlogin == model.Ntlogin) && (x.CustName == model.CustName) && (x.IsActive == 1)).ToList().Any())
                 {
-                    await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_insert, model.Ntlogin, model.RoleId, model.PlantId, model.CustName, model.CreatedBy);
+                    await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_insert, model.Ntlogin, model.UserName, model.UserEmail, model.RoleId, model.PlantId, model.CustName, model.CreatedBy, model.CreatedName, model.CreatedEmail);
                     return Ok(new ResponseResult(200, "User Added Successfully"));
                 }
                 else
@@ -87,7 +94,7 @@ namespace API.Controllers
         {
             try
             {
-                await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_update, model.UserRoleId, model.PlantId, model.CustName, model.RoleId, model.UpdatedBy);
+                await context.Database.ExecuteSqlCommandAsync(SPAdmin.Access_UserRole_update, model.UserRoleId, model.PlantId, model.CustName, model.RoleId, model.UpdatedBy, model.UpdatedName, model.UpdatedEmail);
                 return Ok(new ResponseResult(200, "User Updated Successfully"));
             }
             catch (Exception ex)

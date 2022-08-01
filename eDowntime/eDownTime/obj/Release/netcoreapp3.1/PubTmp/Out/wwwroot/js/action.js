@@ -1,9 +1,11 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
 
     $('body').off('click', '#btn-search').on('click', '#btn-search', Load)
     $('body').off('click', '#btn-edit').on('click', '#btn-edit', Edit)
 
     var user = document.getElementById('userinfo').getAttribute('data-user');
+   
 
     //LoadData()
     function Load() {
@@ -47,7 +49,7 @@
             url: '/action/Get_By_ActionId',
             //dataType: 'json',
             data: JSON.stringify(model),
-            contentType: 'application/json,; charset=utf-8',
+            contentType: 'application/json; charset=utf-8',
             success: function (response) {
                 var data = response.results;
                 debugger
@@ -130,10 +132,10 @@
         debugger
         $.ajax({
             type: 'post',
-            url: '/action/Acton_update',
+            url: '/action/Action_update',
             data: JSON.stringify(model),
             dataType: 'json',
-            contentType: 'application/json,; charset=utf-8',
+            contentType: 'application/json; charset=utf-8',
             success: function (response) {
                 var data = response.results;
                 debugger
@@ -141,7 +143,7 @@
                     bootbox.alert("Save Successfully!", function () { LoadData(); })
                 }
                 else
-                    bootbox.alert("Save Failed!")
+                    bootbox.alert(data.message)
             }
         })
     }

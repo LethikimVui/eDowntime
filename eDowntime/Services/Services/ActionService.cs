@@ -25,7 +25,6 @@ namespace Services.Services
             }
             return list;
         }
-
         public async Task<ResponseResult> Action_update(ActionViewModel model)
         {
             ResponseResult result = new ResponseResult();

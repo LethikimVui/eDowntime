@@ -6,3 +6,11 @@ C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDownti
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.csproj.CopyComplete
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.dll
 C:\Users\1099969\OneDrive - Jabil\Desktop\Development_Project\Web\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.pdb
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\bin\Release\SharedObjects.dll
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\bin\Release\SharedObjects.pdb
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.csproj.AssemblyReference.cache
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.csproj.CoreCompileInputs.cache
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.csproj.CopyComplete
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.dll
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\SharedObjects\obj\Release\SharedObjects.pdb

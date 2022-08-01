@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj": {}
+    "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj": {
+    "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj",
+        "projectUniqueName": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj",
         "projectName": "eDownTime",
-        "projectPath": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj",
+        "projectPath": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\eDownTime\\eDownTime.csproj",
         "packagesPath": "C:\\Users\\1099969\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\eDownTime\\obj\\",
+        "outputPath": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\eDownTime\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,11 +31,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj"
+              "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj"
               },
-              "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj": {
-                "projectPath": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj"
+              "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj": {
+                "projectPath": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj"
               }
             }
           }
@@ -89,20 +89,20 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.214\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj": {
+    "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj",
+        "projectPath": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\Services\\Services.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj": {
-                "projectPath": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj"
+              "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj": {
+                "projectPath": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj"
               }
             }
           }
@@ -112,11 +112,16 @@
         "net472": {}
       }
     },
-    "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj": {
+    "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj",
+        "projectUniqueName": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj",
         "projectName": "SharedObjects",
-        "projectPath": "C:\\Users\\1099969\\OneDrive - Jabil\\Desktop\\Development_Project\\Web\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj"
+        "projectPath": "C:\\Users\\1099969\\Desktop\\Development\\GitHub\\eDowntime\\eDowntime\\SharedObjects\\SharedObjects.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
         "net472": {}
