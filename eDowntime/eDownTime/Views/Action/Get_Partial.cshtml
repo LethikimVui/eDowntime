@@ -18,8 +18,10 @@
                             <td>Downtime Details</td>
                             <td>Total Downtime (Hours)</td>
                             <td>% Impact vs Overall (%)</td>
-                            <td>Problem Description</td>
-                            <td>Root Cause</td>
+                            <td>Problem Description <br /><span style="color:brown;">(5W2H)</span></td>
+                            <td>
+                                Root Cause <br /><span style="color:brown;">(5WHY Analysis)</span>
+                            </td>
                             <td>Containment Action</td>
                             <td>Corrective and Preventive Action</td>
                             <td>ECN/PCN/NA</td>
@@ -30,7 +32,7 @@
                             <td>Status</td>
                             @if (User.IsInRole("Super User") || User.IsInRole("System Admin"))
                             {
-                                <td style="width:100px">Modification</td>
+                            <td style="width:100px">Modification</td>
                             }
                         </tr>
                     </thead>
@@ -38,47 +40,47 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr class="text-center">
-                                <td id="">@item.Yyww</td>
-                                <td id="">@item.CustName</td>
-                                <td id="">@item.Station</td>
-                                <td id="">@item.StationName</td>
-                                <td id="">@item.Category</td>
-                                <td id="">@item.Details</td>
-                                <td id="">@item.TotalDT</td>
-                                <td id="">@item.OverallImpact</td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.ProblemDescription</textarea></td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.RootCause</textarea></td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.ContainmentAction</textarea></td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Capa</textarea></td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Ecnpcn</textarea></td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Fia</textarea></td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Responsible</textarea></td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.CommitDate</textarea></td>
-                                <td id="">
-                                    @if (item.FileName != null)
+                        <tr class="text-center">
+                            <td id="">@item.Yyww</td>
+                            <td id="">@item.CustName</td>
+                            <td id="">@item.Station</td>
+                            <td id="">@item.StationName</td>
+                            <td id="">@item.Category</td>
+                            <td id="">@item.Details</td>
+                            <td id="">@item.TotalDT</td>
+                            <td id="">@item.OverallImpact</td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.ProblemDescription</textarea></td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.RootCause</textarea></td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.ContainmentAction</textarea></td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Capa</textarea></td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Ecnpcn</textarea></td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Fia</textarea></td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Responsible</textarea></td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.CommitDate</textarea></td>
+                            <td id="">
+                                @if (item.FileName != null)
                                     {
-                                        @foreach (var item2 in item.FileName.Split(';'))
+                                @foreach (var item2 in item.FileName.Split(';'))
                                         {
-                                            @*@item2*@
-                                                <a class="wrapper" id="btn" href="@Url.Action("DownloadFile", "Action", new { fileName = @item2 })">@item2</a>
-                                                <br />
+                                @*@item2*@
+                                <a class="wrapper" id="btn" href="@Url.Action("DownloadFile", "Action", new { fileName = @item2 })">@item2</a>
+                                <br />
                                         }
                                     }
 
-                                </td>
-                                <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Remark</textarea></td>
-                                @if (item.StatusId == 1 && (User.IsInRole("Super User") || User.IsInRole("System Admin")))
+                            </td>
+                            <td id=""><textarea class="cell" rows="6" cols="30" disabled>@item.Remark</textarea></td>
+                            @if (item.StatusId == 1 && (User.IsInRole("Super User") || User.IsInRole("System Admin")))
                                 {
-                                    <td class="text-center">
-                                        <a id="btn-edit" class="btn default btn-xs red delete" data-id="@item.ActionId" title="Edit" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-edit"></span></a>
-                                    </td>
+                            <td class="text-center">
+                                <a id="btn-edit" class="btn default btn-xs red delete" data-id="@item.ActionId" title="Edit" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-edit"></span></a>
+                            </td>
                                 }
-                            </tr>
+                        </tr>
                         }
                     </tbody>
                 </table>
-
+              
             </div>
         </div>
     </div>

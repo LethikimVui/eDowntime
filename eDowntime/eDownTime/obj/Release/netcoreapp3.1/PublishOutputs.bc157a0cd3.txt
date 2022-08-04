@@ -1440,11 +1440,12 @@ C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Re
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\ckeditor\styles.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\ckeditor\vendor\promise.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\common.js
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\file-download.js
+C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\filesaver.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\jquery-validation\additional-methods.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\jquery-validation\additional-methods.min.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\jquery-validation\jquery.validate.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\jquery-validation\jquery.validate.min.js
-C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\site.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\twbs-pagination\jquery.twbsPagination.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\twbs-pagination\jquery.twbsPagination.min.js
 C:\Users\1099969\Desktop\Development\GitHub\eDowntime\eDowntime\eDownTime\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

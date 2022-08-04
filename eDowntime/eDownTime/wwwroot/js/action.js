@@ -41,6 +41,7 @@ $(document).ready(function () {
 
     function Edit() {
         $(this).find('form').trigger('reset');
+       
         var model = new Object();
         actionId = parseInt($(this).data('id'))
         model.ActionId = actionId
@@ -63,15 +64,16 @@ $(document).ready(function () {
                 $('#txt-stationname').text(data.stationName);
                 $('#txt-totaldt').text(data.totalDT);
                 $('#txt-overalimpact').text(data.overallImpact);
-                $('#txt-description').text(data.problemDescription);
-                $('#txt-rootcause').text(data.rootCause);
-                $('#txt-action').text(data.containmentAction);
-                $('#txt-capa').text(data.capa);
-                $('#txt-ecnpcn').text(data.ecnpcn);
-                $('#txt-fia').text(data.fia);
+
+                $('#txt-description').val(data.problemDescription);
+                $('#txt-rootcause').val(data.rootCause);
+                $('#txt-action').val(data.containmentAction);
+                $('#txt-capa').val(data.capa);
+                $('#txt-ecnpcn').val(data.ecnpcn);
+                $('#txt-fia').val(data.fia);
                 $('#txt-person').val(data.responsible);
                 $('#txt-commitdate').val(data.commitDate);
-                $('#txt-status').text(data.remark);
+                $('#txt-status').val(data.remark);
                 $('#actionId').val(actionId);
                 actionId = null;
             }
@@ -155,6 +157,7 @@ $(document).ready(function () {
     function Reset() {
         window.location.reload();
     }
+
 
     function uploadFile(_file, _date) {
         var form_data = new FormData();

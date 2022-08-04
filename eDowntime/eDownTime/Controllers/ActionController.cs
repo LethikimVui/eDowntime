@@ -45,6 +45,12 @@ namespace eDownTime.Controllers
             return PartialView(results);
         }
         [HttpPost]
+        public async Task<IActionResult> Action_export([FromBody] ActionViewModel model)
+        {
+            var results = await actionService.Action_get(model);
+            return Json(new { result = results });
+        }
+        [HttpPost]
         public async Task<IActionResult> Get_By_ActionId([FromBody] ActionViewModel model)
         {
             var results = await actionService.Action_get(model);

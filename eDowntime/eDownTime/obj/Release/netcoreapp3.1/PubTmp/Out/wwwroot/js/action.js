@@ -4,8 +4,9 @@ $(document).ready(function () {
     $('body').off('click', '#btn-search').on('click', '#btn-search', Load)
     $('body').off('click', '#btn-edit').on('click', '#btn-edit', Edit)
 
-    var user = document.getElementById('userinfo').getAttribute('data-user');
-   
+    var user = document.getElementById('userinfo').getAttribute('data-user');   
+
+    
 
     //LoadData()
     function Load() {
@@ -39,6 +40,7 @@ $(document).ready(function () {
     }
 
     function Edit() {
+        $(this).find('form').trigger('reset');
         var model = new Object();
         actionId = parseInt($(this).data('id'))
         model.ActionId = actionId
@@ -71,6 +73,7 @@ $(document).ready(function () {
                 $('#txt-commitdate').val(data.commitDate);
                 $('#txt-status').text(data.remark);
                 $('#actionId').val(actionId);
+                actionId = null;
             }
         })
 
@@ -152,6 +155,7 @@ $(document).ready(function () {
     function Reset() {
         window.location.reload();
     }
+
 
     function uploadFile(_file, _date) {
         var form_data = new FormData();
